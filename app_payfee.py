@@ -3,6 +3,17 @@ from streamlit_webrtc import webrtc_streamer
 import av
 import cv2
 
+import os
+from twilio.rest import Client
+
+# Find your Account SID and Auth Token at twilio.com/console
+# and set the environment variables. See http://twil.io/secure
+account_sid = os.environ['AC92740f266eb4575add6fd0d06763180f']
+auth_token = os.environ['9ed12437ddd7dbfab8ecaac2e1c76bd1']
+client = Client(account_sid, auth_token)
+
+token = client.tokens.create()
+
 st.title("My first Streamlit app")
 st.write("Hello, world")
 
@@ -24,7 +35,7 @@ ctx = webrtc_streamer(
     key="example",
     video_processor_factory=VideoProcessor,
     rtc_configuration={
-        "iceServers": [{"urls": ["stun:stun.l.google.com:19302"]}]
+        "iceServers": token.ice_servers
     }
 )
 if ctx.video_processor:
