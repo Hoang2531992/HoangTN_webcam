@@ -1,3 +1,11 @@
+# from streamlit_webrtc import webrtc_streamer
+
+# webrtc_streamer(key="sample")
+
+import streamlit as st
 from streamlit_webrtc import webrtc_streamer
 
-webrtc_streamer(key="sample")
+st.title("My first Streamlit app")
+st.write("Hello, world")
+
+webrtc_streamer(key="example")
