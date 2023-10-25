@@ -1,5 +1,5 @@
-opencv-python-headless==4.5.4.60
-streamlit==1.2.0
+opencv-python-headless==4.8.1.78
+streamlit==1.27.0
 streamlit-webrtc==0.47.1
 altair==4.0
 streamlit-webcam-example
